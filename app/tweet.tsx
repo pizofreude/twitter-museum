@@ -3,7 +3,7 @@
 import Likes from "./likes";
 import { experimental_useOptimistic as useOptimistic } from "react";
 
-export default function Tweets({ tweets }: { tweets: TweetWithAuthor[] }) {
+export default function Tweet({ tweets }: { tweets: TweetWithAuthor[] }) {
     const [optimisticTweets, addOptimisticTweet] = useOptimistic<TweetWithAuthor[], TweetWithAuthor> (
         tweets,
         (currentOptimisticTweets, newTweet) => {
