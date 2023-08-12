@@ -7,15 +7,16 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function Tweet({ tweets }: { tweets: TweetWithAuthor[] }) {
-    const [optimisticTweets, addOptimisticTweet] = useOptimistic<TweetWithAuthor[], TweetWithAuthor> (
-        tweets,
-        (currentOptimisticTweets, newTweet) => {
-            const newOptimisticTweets = [...currentOptimisticTweets];
-            const index = newOptimisticTweets.findIndex(tweet => tweet.id === newTweet.id);
-            newOptimisticTweets[index] = newTweet;
-            return newOptimisticTweets;
-        }
-    );
+    const [optimisticTweets, addOptimisticTweet] = useOptimistic<
+      TweetWithAuthor[],
+      TweetWithAuthor
+    >(tweets, (currentOptimisticTweets, newTweet) => {
+      const newOptimisticTweets = [...currentOptimisticTweets];
+      const index = newOptimisticTweets.findIndex(tweet => tweet.id === newTweet.id);
+      newOptimisticTweets[index] = newTweet;
+      return newOptimisticTweets;
+    });
+    
     
     const supabase = createClientComponentClient();
     const router = useRouter();
