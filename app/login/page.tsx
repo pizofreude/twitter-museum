@@ -25,6 +25,14 @@ export default async function Login() {
           <title>Twitter Museum Login</title>
         </Head>
 
+        <header className={styles.header}>
+                <img
+                    src="/Twitter_icon-icons.com_66803_512px.png"
+                    alt="Twitter Icon"
+                    className={styles.headerImage}
+                />
+        </header>
+
 
         <main className={styles.main}>
           <h1 className={styles.title}>
